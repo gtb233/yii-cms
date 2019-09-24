@@ -38,7 +38,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'encodeLabels' => false,
-        'dropDownCaret' => '',
+//        'dropDownCaret' => '-',
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             [

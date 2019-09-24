@@ -6,10 +6,10 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
 use yiichina\icons\Icon;
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 /**
  * User model
@@ -251,10 +251,11 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getStatusLabel()
     {
-        return [
+        $arr = [
             self::STATUS_DELETED => Html::tag('small', Icon::show('delete') . Yii::t('app', 'Deleted'), ['class' => 'label label-danger']),
             self::STATUS_ACTIVE => Html::tag('small', Icon::show('check') . Yii::t('app', 'Active'), ['class' => 'label label-success']),
-        ][$this->status];
+        ];
+        return $arr[$this->status];
     }
 
     public function getRoles()
